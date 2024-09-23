@@ -10,6 +10,7 @@ import Account from "./Components/Account";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import { useState } from "react";
+import { CartProvider } from "react-use-cart";
 
 function App() {
   return (
@@ -18,16 +19,36 @@ function App() {
         <Router>
           <Navbar />
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route
+              path="/"
+              element={
+                <CartProvider>
+                  <Home />
+                </CartProvider>
+              }
+            />
+            <Route
+              path="/cart"
+              element={
+                <CartProvider>
+                  <Cart />
+                </CartProvider>
+              }
+            />
             <Route path="/collections" element={<Collections />} />
             <Route path="/men" element={<Men />} />
             <Route path="/women" element={<Women />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/cart" element={<Cart />} />
+
             <Route path="/account" element={<Account />} />
           </Routes>
         </Router>
+
+        {/* <CartProvider>
+          <Home />
+          <Cart />
+        </CartProvider> */}
       </div>
     </>
   );

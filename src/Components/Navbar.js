@@ -14,9 +14,9 @@ const Navbar = () => {
     setIsPopupVisible(!isPopupVisible);
   };
 
-  const addItemToCart = (item) => {
-    setCartItems([...cartItems, item]);
-  };
+  // const addItemToCart = (item) => {
+  //   setCartItems([...cartItems, item]);
+  // };
   return (
     <div>
       <div className="flex gap-x-8 items-end text-[#666970] relative">
@@ -40,8 +40,8 @@ const Navbar = () => {
         </Link>
 
         <div className=" flex gap-x-10 justify-between items-end absolute right-24">
-          <Link>
-            <img src={cart} alt="" onClick={togglePopup} />
+          <Link to="/cart">
+            <img src={cart} alt="" onMouseMove={togglePopup} />
           </Link>
           <Link to="/account">
             <img src={dp} alt="" className="size-14 relative top-3" />
